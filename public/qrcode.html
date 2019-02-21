@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Codes</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        /* img{
+            width: 40%;
+        } */
+        div img{
+            width: 20%;
+        }
+    </style>
+    <script src="js/qrcode.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>QR Codes</h1>
+    </header>
+    <main>
+       <!-- using
+       https://davidshimjs.github.io/qrcodejs/
+       -->
+        <div id="output"></div>
+    </main>    
+    <script>
+        let qrcode = new QRCode("output", {
+            text: "http://fillmurray.com/",
+            width: 177,
+            height: 177,
+            colorDark : "#990000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+        
+        document.body.addEventListener('click', ()=>{
+            qrcode.clear(); 
+            qrcode.makeCode("http://google.ca/"); 
+        })
+        
+    </script>
+</body>
+</html>
